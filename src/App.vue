@@ -1,6 +1,6 @@
 <template>
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-  <div>{{time}}</div>
+  <div>{{ time }}</div>
 </template>
 
 <script lang="ts">
@@ -13,9 +13,9 @@ export default defineComponent({
   components: {
     HelloWorld
   },
-  setup(){
+  setup() {
     const time = dayjs().format('YYYY-MM-DD ')
-    return{
+    return {
       time
     }
   }
