@@ -1,5 +1,32 @@
 {
+  // eslint 开始
+  "eslint.run": "onType", // 运行linter 的时间
+  // 保存时自动格式化
+  "editor.formatOnSave": true,
+  // 每次保存的时候将代码按eslint格式进行修复,vscode es6语法检测配置
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+    "source.fixAll": true
+  },
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "eslint.validate": [
+    "javascript", //  用eslint的规则检测js文件
+    "javascriptreact",
+    "vue",
+    {
+      "language": "vue", // 检测vue文件
+      "autoFix": true //  为vue文件开启保存自动修复的功能
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    }
+  ],
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "eslint.lintTask.enable": true,
 }
