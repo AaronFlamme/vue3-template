@@ -5,7 +5,9 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint --ext .jsx,.js,.vue,.ts,.tsx .",
+    "cz": "git cz"
   },
   "dependencies": {
     "ant-design-vue": "^2.2.2",
@@ -36,5 +38,24 @@
     "typescript": "^4.3.2",
     "vite": "^2.4.4",
     "vue-tsc": "^0.2.2"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "yarn lint",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }
